@@ -31,7 +31,7 @@ export default function App() {
         element={
           <div style={{ padding: "2rem", maxWidth: "600px", margin: "0 auto" }}>
             <h1>Community Resource Finder</h1>
-            <p>Welcome! We’re building this step by step.</p>
+            <p>Welcome! </p>
 
             <SearchBar onSearch={setSearchText} />
             <FilterPanel
