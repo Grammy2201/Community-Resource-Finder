@@ -1,13 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
 import ResourceCard from "./components/ResourceCard";
 import FilterPanel from "./components/FilterPanel";
-import { useContext } from "react";
 import { ResourceContext } from "./context/ResourceContext";
 import ResourceDetails from "./pages/ResourceDetails";
 import SkeletonCard from "./components/SkeletonCard";
-
 
 export default function App() {
   const [searchText, setSearchText] = useState("");
@@ -15,21 +13,7 @@ export default function App() {
 
   const { resources, loading } = useContext(ResourceContext);
 
-  {loading ? (
-  <>
-    <SkeletonCard />
-    <SkeletonCard />
-    <SkeletonCard />
-  </>
-) : (
-  filteredResources.map((resource) => (
-    <ResourceCard key={resource.id} resource={resource} />
-  ))
-)}
-
-
-const filteredResources = resources.filter((r) => {
-
+  const filteredResources = resources.filter((r) => {
     const matchesSearch =
       r.name.toLowerCase().includes(searchText.toLowerCase()) ||
       r.type.toLowerCase().includes(searchText.toLowerCase());
@@ -42,7 +26,6 @@ const filteredResources = resources.filter((r) => {
 
   return (
     <Routes>
-      {/* Home Page */}
       <Route
         path="/"
         element={
@@ -56,14 +39,22 @@ const filteredResources = resources.filter((r) => {
               onSelectType={setSelectedType}
             />
 
-            {filteredResources.map((resource) => (
-              <ResourceCard key={resource.id} resource={resource} />
-            ))}
+            {loading ? (
+              <>
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+              </>
+              ) : filteredResources.length === 0 ? ( <p>No resources found.</p>
+            ) : (
+              filteredResources.map((resource) => (
+                <ResourceCard key={resource.id} resource={resource} />
+              ))
+            )}
           </div>
         }
       />
 
-      {/* Details Page */}
       <Route path="/resource/:id" element={<ResourceDetails />} />
     </Routes>
   );

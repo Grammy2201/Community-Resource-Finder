@@ -1,16 +1,100 @@
-# React + Vite
+Community Resource Finder
+A modern React application that helps users search, filter, and explore community resources such as food banks, shelters, and clinics. Built with clean architecture, global state management, and a lightweight backend API.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features
+✅ Current Functionality
+Search & Filter System
+Users can search by name or type and filter resources by category.
 
-Currently, two official plugins are available:
+Resource Details Page
+Each resource has a dedicated page with full information.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Global State with Context API
+Centralized data layer for clean, scalable state management.
 
-## React Compiler
+Real Backend API (JSON Server)
+Resources are loaded from a live API instead of mock data.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Loading Skeleton UI
+Smooth, professional loading experience while data fetches.
 
-## Expanding the ESLint configuration
+Clean Project Architecture
+Organized into components, pages, context, hooks, and services.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🛠️ Tech Stack
+Frontend
+React (Vite)
+
+React Router
+
+Context API
+
+Modern ES Modules
+
+Backend
+JSON Server (development API)
+
+RESTful endpoints
+
+📂 Project Structure
+Code
+src/
+  components/
+    FilterPanel.jsx
+    ResourceCard.jsx
+    SearchBar.jsx
+    SkeletonCard.jsx
+  context/
+    ResourceContext.js
+    ResourceProvider.jsx
+  pages/
+    ResourceDetails.jsx
+  services/
+    (mockResources.js removed)
+  styles/
+App.jsx
+main.jsx
+db.json (API data)
+⚙️ Getting Started
+1. Install dependencies
+bash
+npm install
+2. Start the backend API
+bash
+npm run server
+API runs at:
+
+Code
+http://localhost:4000/resources
+3. Start the frontend
+bash
+npm run dev
+🔌 API Endpoints
+Method	Endpoint	Description
+GET	/resources	Get all resources
+GET	/resources/:id	Get a single resource
+POST	/resources	Create a new resource (coming soon)
+PUT/PATCH	/resources/:id	Update a resource (coming soon)
+DELETE	/resources/:id	Delete a resource (coming soon)
+🧭 Upcoming Features
+🌍 Interactive Maps
+Display resource locations on Google Maps or Mapbox
+
+Show directions, distance, and nearby services
+
+🔐 Authentication
+User login system
+
+Admin access control
+
+JWT or Firebase Auth integration
+
+🛠️ Admin Dashboard
+Create, edit, and delete resources
+
+Manage categories
+
+View analytics and usage patterns
+
+🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to modify.
